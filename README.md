@@ -1,2 +1,2 @@
 # Sort-visualizator---coop
-learn work
+learn coop work . it`s very hurt
