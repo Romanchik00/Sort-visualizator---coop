@@ -17,11 +17,21 @@ namespace TeamProgect
     /// <summary>
     /// Логика взаимодействия для SPEED.xaml
     /// </summary>
-    public partial class SPEED : Window
+    public partial class Mode : Window
     {
-        public SPEED()
+        public Mode()
         {
             InitializeComponent();
+        }
+
+        private void SpeedButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        private void VisualButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

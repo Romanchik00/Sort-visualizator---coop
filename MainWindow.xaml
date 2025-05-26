@@ -31,17 +31,16 @@
         <!--Часть с кнопками-->
         <Border CornerRadius="15" Margin="0 5 0 10" Grid.Column="0" Grid.Row="1" BorderBrush="#FF483D8B" BorderThickness="5" Opacity="0.8">
             <StackPanel Grid.Row="1">
-                <Button FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Complex" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запуск" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="StartButton_Click"/>
-                <Button FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Стоп" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="StopButton_Click"/>
-                <Button FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Пауза" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="PauseButton_Click"/>
-                <Button FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Режим" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="ModeButton_Click"/>
-                <Button Click="GenerateDataButton_Click" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.8" Background="#FF483D8B" Width="190" Margin="0 40 0 0" Height="70">
+                <Button x:Name="StartButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Complex" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запуск" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="StartButton_Click"/>
+                <Button x:Name="PauseButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Пауза" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="PauseButton_Click"/>
+                <Button x:Name="ModeButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Режим" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="ModeButton_Click"/>
+                <Button x:Name="DataGenButton" Click="GenerateDataButton_Click" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.8" Background="#FF483D8B" Width="190" Margin="0 40 0 0" Height="70">
                     <Button.Content>
                         <TextBlock Text="Сгенерировать данные" TextWrapping="Wrap" TextAlignment="Center"/>
                     </Button.Content>
                 </Button>
 
-                <Image Source="/IMAGES/Sketch001.tif" Margin="0 30 0 0" Width="220" Height="290" />
+                <Image Source="/IMAGES/Sketch001.tif" Margin="0 30 0 0" Width="220" Height="350" />
 
             </StackPanel>
         </Border>
@@ -61,7 +60,7 @@
                         <Label x:Name="TimerTextBlockBubble" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="50,0,0,0"/>
                     </StackPanel>
 
-                    <ItemsControl ItemsSource="{Binding Path=TestArray1}">
+                    <ItemsControl x:Name="BubbleItems" ItemsSource="{Binding Path=TestArray1}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Margin="0,0,0,40" Orientation="Horizontal" HorizontalAlignment="Center"/>

@@ -25,11 +25,11 @@ namespace TeamProgect
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DispatcherTimer timer;
-        private TimeSpan timeSpan;
-
         private List<ObservableCollection<double>> TestArrays = new(5) {new(),new(),new(),new(),new()};
-        private List<DispatcherTimer> Timers = new(5) { new(), new(), new(), new(), new() };
+
+        bool? isMode;
+        bool isGenerate = false;
+        bool isLoop = true;
 
         public class Data
         {
@@ -67,29 +67,21 @@ namespace TeamProgect
             }
         }
 
+        private void Accept() 
+        {
+            if(isMode is not null && isGenerate)
+            {
+                StartButton.IsEnabled = true;
+                PauseButton.IsEnabled = true;
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
-            InitializeTimer();
 
-            Data data = Data.GenRandom(TestArrays);
-            DataContext = data;
-
-        }
-
-        private void InitializeTimer()
-        {
-            timeSpan = TimeSpan.Zero;
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1); // Обновление каждую секунду
-            timer.Tick += new EventHandler(Timer_Tick);
-            timer.Start();
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            timeSpan = timeSpan.Add(TimeSpan.FromSeconds(1));
-            //TimerTextBlock.Text = timeSpan.ToString(@"hh\:mm\:ss"); // Форматирование времени
+            StartButton.IsEnabled = false;
+            PauseButton.IsEnabled = false;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -112,67 +104,127 @@ namespace TeamProgect
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            //Sort.BubbleSort(TestArrays[0]);
-            Stopwatch sw = Stopwatch.StartNew();
-            BubbleSort();
-            sw.Stop();
-            TimerTextBlockBubble.Content = sw.Elapsed;
-            //VisualSort.BubbleSort(TestArrays[0]);
-
-            Sort.SelectionSort(TestArrays[1]);
-            
-
-        }
-
-        private void StopButton_Click(object sender, RoutedEventArgs e)
-        {
-            
+            if (isMode == false)
+            {
+                BubbleSort();
+                SelectionSort();
+                InsertionSort();
+                MergeSort();
+                QuickSort();
+            }
+            else
+            {
+                VisualBubbleSort();
+                VisualSelectionSort();
+                VisualInsertionSort();
+                //VisualMergeSort(); // Некорректно
+                //VisualQuickSort(); // Зависает
+            }
         }
 
         private async void PauseButton_Click(object sender, RoutedEventArgs e)
         {
-            TimerTextBlockBubble.Content = null;
-            DispatcherTimer timer = Timers[0];
-            timer.Interval = TimeSpan.FromMilliseconds(1);
-            timer.Tick += new EventHandler((object sender, EventArgs e) => {
-                timeSpan = timeSpan.Add(TimeSpan.FromMilliseconds(1));
-                TimerTextBlockBubble.Content = timeSpan.ToString(@"mm\:ss\:fffffff"); // Форматирование времени
-            });
-            timer.Start();
-             VisualBubbleSort();
-            timer.Stop();
-            //MessageBox.Show(TimerTextBlockBubble.Content.ToString() + '\n' + timer.ToString());
+            Sort.isLoop = false;
+            await Task.Delay(500);
+            Sort.isLoop = true;
         }
 
         private void ModeButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var mode =new Mode();
+            var dialog = mode.ShowDialog();
+            isMode = dialog;
+            Accept();
         }
 
         private void GenerateDataButton_Click(object sender, RoutedEventArgs e)
         {
+            (DataContext as Data)?.TestArray1.Clear();
+            (DataContext as Data)?.TestArray2.Clear();
+            (DataContext as Data)?.TestArray3.Clear();
+            (DataContext as Data)?.TestArray4.Clear();
+            (DataContext as Data)?.TestArray5.Clear();
 
+            if (DataContext is not null)
+                DataContext = null;
+
+            Data data = Data.GenRandom(TestArrays);
+            DataContext = data;
+            isGenerate = true;
+            Accept();
         }
 
         //---------------------------------------------------------------------
 
         async void BubbleSort()
         {
-            timeSpan = TimeSpan.Zero;
-            DispatcherTimer timer = Timers[0];
-            timer.Interval = TimeSpan.FromMicroseconds(1);
-            timer.Tick += new EventHandler((object sender, EventArgs e) => {
-                timeSpan = timeSpan.Add(TimeSpan.FromMicroseconds(1));
-                TimerTextBlockBubble.Content = timeSpan.ToString(@"mm\:ss\:fffffff"); // Форматирование времени
+            await Dispatcher.BeginInvoke(() => {
+                Stopwatch sw = Stopwatch.StartNew();
+                Sort.BubbleSort(TestArrays[0]);
+                sw.Stop();
+                TimerTextBlockBubble.Content = sw.Elapsed;
             });
-            timer.Start();
-            await Dispatcher.BeginInvoke(()=> Sort.BubbleSort(TestArrays[0]));
-            //Sort.BubbleSort(TestArrays[0]);
-            timer.Stop();
         }
+
+        async void SelectionSort()
+        {
+            await Dispatcher.BeginInvoke(() => {
+                Stopwatch sw = Stopwatch.StartNew();
+                Sort.SelectionSort(TestArrays[1]);
+                sw.Stop();
+                TimerTextBlockSelection.Content = sw.Elapsed;
+            });
+        }
+
+        async void InsertionSort() 
+        {
+            await Dispatcher.BeginInvoke(() => {
+                Stopwatch sw = Stopwatch.StartNew();
+                Sort.InsertionSort(TestArrays[2]);
+                sw.Stop();
+                TimerTextBlockInsertion.Content = sw.Elapsed;
+            });
+        }
+        async void MergeSort() 
+        {
+            await Dispatcher.BeginInvoke(() => {
+                Stopwatch sw = Stopwatch.StartNew();
+                Sort.MergeSort(TestArrays[3], 0, TestArrays[3].Count - 1);
+                sw.Stop();
+                TimerTextBlockMerge.Content = sw.Elapsed;
+            });
+        }
+        async void QuickSort()
+        {
+            await Dispatcher.BeginInvoke(() => {
+                Stopwatch sw = Stopwatch.StartNew();
+                Sort.QuickSort(TestArrays[4], 0 , TestArrays[4].Count - 1);
+                sw.Stop();
+                TimerTextBlockQuick.Content = sw.Elapsed;
+            });
+        }
+
         void VisualBubbleSort()
         {
             VisualSort.BubbleSort(TestArrays[0]);
+        }
+
+        void VisualSelectionSort()
+        {
+            VisualSort.SelectionSort(TestArrays[1]);
+        }
+
+        void VisualInsertionSort()
+        {
+            VisualSort.InsertionSort(TestArrays[2]);
+        }
+        void VisualMergeSort()
+        {
+            VisualSort.MergeSort(TestArrays[3], 0, TestArrays[3].Count - 1);
+        }
+        void VisualQuickSort()
+        {
+            VisualSort.QuickSort(TestArrays[4], 0, TestArrays[4].Count - 1);
         }
 
     }
