@@ -1,0 +1,186 @@
+﻿<Window x:Class="TeamProgect.MainWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="1000" Height="900" 
+        ResizeMode="NoResize"
+         Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <!-- Градиент для фона -->
+        <LinearGradientBrush  Opacity="0.9" x:Key="MyGradient" StartPoint="0,0" EndPoint="1,2">
+            <GradientStop Color="#FFAAAAAA" Offset="0.0"/>
+            <GradientStop Color="#FF7B68EE" Offset="0.75"/>
+            <GradientStop Color="#FF483D8B" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Window.Resources>
+    <!--Главное окно-->
+    <Grid  Background="{StaticResource MyGradient}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <!--Верхняя панель-->
+        <Border Grid.RowSpan="1" Grid.ColumnSpan="2"  CornerRadius="15" BorderBrush="	#FF483D8B" BorderThickness="5" >
+            <StackPanel  Grid.RowSpan="1" Grid.ColumnSpan="2" Background="	#FF483D8B" >
+                <TextBlock Text="TEAM PROJECT" Margin="0 10 0 0" FontSize="40" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Border>
+        <!--Часть с кнопками-->
+        <Border CornerRadius="15" Margin="0 5 0 10" Grid.Column="0" Grid.Row="1" BorderBrush="#FF483D8B" BorderThickness="5" Opacity="0.8">
+            <StackPanel Grid.Row="1">
+                <Button FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Complex" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запуск" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="StartButton_Click"/>
+                <Button FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Стоп" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="StopButton_Click"/>
+                <Button FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Пауза" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="PauseButton_Click"/>
+                <Button FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Режим" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="ModeButton_Click"/>
+                <Button Click="GenerateDataButton_Click" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.8" Background="#FF483D8B" Width="190" Margin="0 40 0 0" Height="70">
+                    <Button.Content>
+                        <TextBlock Text="Сгенерировать данные" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button.Content>
+                </Button>
+
+                <Image Source="/IMAGES/Sketch001.tif" Margin="0 30 0 0" Width="220" Height="290" />
+
+            </StackPanel>
+        </Border>
+        <!--Кнопки закрытия и свертывания-->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0 -40 10 0">
+            <Button FontSize="20" Background="LightBlue" Content="_" Height="30" Width="30" Click="MinimazeButton_Click_1" />
+            <Button Margin="10 0 0 0" FontSize="20" Background="LightBlue" Content="X" Height="30" Width="30" Click="CloseButton_Click" />
+
+        </StackPanel>
+        <!--Отслеживания прогрессбары-->
+        <Border CornerRadius="15" Margin="0 5 0 10" BorderThickness="5" BorderBrush="#FF483D8B"  Opacity="0.8" Grid.Column="1" Grid.Row="1">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Margin="10" VerticalScrollBarVisibility="Disabled">
+                <StackPanel>
+                <!--Первый алгоритм-->
+                    <StackPanel x:Name="Bubble" Orientation="Horizontal">
+                        <Label Content="Сортировка пузырьком (Bubble Sort):" FontSize="25" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia"/>
+                        <Label x:Name="TimerTextBlockBubble" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="50,0,0,0"/>
+                    </StackPanel>
+
+                    <ItemsControl ItemsSource="{Binding Path=TestArray1}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Margin="0,0,0,40" Orientation="Horizontal" HorizontalAlignment="Center"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                <Grid Margin="5">
+                                    <ProgressBar Orientation="Vertical" Foreground="#FF483D8B" Width="30" Height="50" Minimum="0" Maximum="100" Value="{Binding Path=.}" />
+                                    <TextBlock Text="{Binding Path=., StringFormat='{}{0:F0}'}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFA9A9A9" />
+                                </Grid>
+                            </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+
+                    <!--Второй алгоритм-->
+                    <StackPanel x:Name="Selection" Orientation="Horizontal">
+                        <Label Content="Сортировка выбором (Selection Sort):"  FontSize="25" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia"/>
+                        <Label x:Name="TimerTextBlockSelection" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="50,0,0,0"/>
+                    </StackPanel>
+
+                    <ItemsControl ItemsSource="{Binding Path=TestArray2}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Margin="0,0,0,40" Orientation="Horizontal" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="5">
+                                    <ProgressBar Orientation="Vertical" Foreground="#FF483D8B" Width="30" Height="50" Minimum="0" Maximum="100" Value="{Binding Path=.}" />
+                                    <TextBlock Text="{Binding Path=., StringFormat='{}{0:F0}'}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFA9A9A9" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!--Третий алгоритм-->
+                    <StackPanel x:Name="Insertion" Orientation="Horizontal">
+                        <Label Content="Сортировка вставками (Insertion Sort): " FontSize="25" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia"/>
+                        <Label  x:Name="TimerTextBlockInsertion" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="25,0,0,0"/>
+                    </StackPanel>
+                    
+                    <ItemsControl ItemsSource="{Binding Path=TestArray3}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Margin="0,0,0,40" Orientation="Horizontal" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="5">
+                                    <ProgressBar Orientation="Vertical" Foreground="#FF483D8B" Width="30" Height="50" Minimum="0" Maximum="100" Value="{Binding Path=.}" />
+                                    <TextBlock Text="{Binding Path=., StringFormat='{}{0:F0}'}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFA9A9A9" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!--Четвертый алгоритм-->
+                    <StackPanel x:Name="Merge" Orientation="Horizontal">
+                        <Label Content="Сортировка слиянием (Merge Sort): " FontSize="25" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia"/>
+                        <Label x:Name="TimerTextBlockMerge" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="65,0,0,0"/>
+                    </StackPanel>
+                    
+                    <ItemsControl ItemsSource="{Binding Path=TestArray4}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Margin="0,0,0,40" Orientation="Horizontal" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="5">
+                                    <ProgressBar Orientation="Vertical" Foreground="#FF483D8B" Width="30" Height="50" Minimum="0" Maximum="100" Value="{Binding Path=.}" />
+                                    <TextBlock Text="{Binding Path=., StringFormat='{}{0:F0}'}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFA9A9A9" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!--Пятый алгоритм-->
+                    <StackPanel x:Name="Quick" Orientation="Horizontal">
+                        <Label Content="Быстрая сортировка (Quick Sort): " FontSize="25" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia"/>
+                        <Label x:Name="TimerTextBlockQuick" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="85,0,0,0"/>
+                    </StackPanel>
+
+                    <ItemsControl ItemsSource="{Binding Path=TestArray5}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Margin="0,0,0,40" Orientation="Horizontal" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="5">
+                                    <ProgressBar Orientation="Vertical" Foreground="#FF483D8B" Width="30" Height="50" Minimum="0" Maximum="100" Value="{Binding Path=.}" />
+                                    <TextBlock Text="{Binding Path=., StringFormat='{}{0:F0}'}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFA9A9A9" />
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </StackPanel>
+                
+            </ScrollViewer>
+        </Border>
+        <Image Source="/IMAGES/icons8-microsoft-power-apps-48.png" Margin="215,10,625,10" Grid.ColumnSpan="2"/>
+        <Image Source="/IMAGES/icons8-microsoft-power-apps-48.png" Margin="370,10,220,10" Grid.Column="1"/>
+        <Image Opacity="0.7" Panel.ZIndex="-1" Source="/IMAGES/png-clipart-flower-desktop-color-frost-purple-blue.png" Margin="141,75,-140,116" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.RowSpan="2">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-274.322"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+    </Grid>
+</Window>

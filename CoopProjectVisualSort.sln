@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoopProjectVisualSort", "CoopProjectVisualSort.csproj", "{616C2163-5019-4BCD-894F-8B43E46A700A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{616C2163-5019-4BCD-894F-8B43E46A700A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616C2163-5019-4BCD-894F-8B43E46A700A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616C2163-5019-4BCD-894F-8B43E46A700A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616C2163-5019-4BCD-894F-8B43E46A700A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B8C2274-7F54-4D12-9227-17FDD9505FB6}
+	EndGlobalSection
+EndGlobal
