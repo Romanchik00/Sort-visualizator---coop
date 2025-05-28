@@ -247,31 +247,34 @@ namespace sort
                 {
                     arr[k++] = R[jIndex++];
                 }
+                await Task.Delay(25);
             }
 
             while (iIndex < n1)
             {
                 if (!Sort.isLoop) { return; }
                 arr[k++] = L[iIndex++];
-                await Task.Delay(100);
+                await Task.Delay(25);
             }
 
             while (jIndex < n2)
             {
                 if (!Sort.isLoop) { return; }
                 arr[k++] = R[jIndex++];
-                await Task.Delay(100);
+                await Task.Delay(25);
             }
         }
 
-        public static void QuickSort(ObservableCollection<double> arr, int low, int high)
+        public static async Task QuickSort(ObservableCollection<double> arr, int low, int high)
         {
             if (low < high)
             {
-                int pi = Partition(arr, low, high).Result;
+                int pi;
+                pi = await Partition(arr, low, high);
+
                 if (!Sort.isLoop) { return; }
-                QuickSort(arr, low, pi - 1);
-                QuickSort(arr, pi + 1, high);
+                await QuickSort(arr, low, pi - 1);
+                await QuickSort(arr, pi + 1, high);
             }
         }
 
@@ -295,7 +298,6 @@ namespace sort
             var temp1 = arr[i + 1];
             arr[i + 1] = arr[high];
             arr[high] = temp1;
-            await Task.Delay(100);
             return i + 1;
         }
 
