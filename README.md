@@ -57,6 +57,7 @@ C:\Path\To\Your\Project\bin\Debug\netcoreappX.X\Sort-visualizator---coop.exe
 
 ## Contributing
 Как помочь в разработке проекта? Вы можете отправить предложение или баг-репорт.
+[Фидбэк](https://docs.google.com/forms/d/e/1FAIpQLSfMj61oxyQmIUjWuSJtEpblzdRr2hGv3oD-OWVlVuAKRTrrIw/viewform?usp=dialog)
 
 ## FAQ 
 Если потребители вашего кода часто задают одни и те же вопросы, добавьте ответы на них в этом разделе.
