@@ -1,10 +1,10 @@
 # 0.7.0
 ## Fixed
-- Исправлен MargeSort
+- Исправлен VisualMargeSort
 
 # 0.6.5
 ## Fixed
-- Исправлен QuickSort
+- Исправлен VisualQuickSort
 
 # 0.6.0
 ## Added
