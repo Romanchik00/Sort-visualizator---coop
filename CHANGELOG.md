@@ -1,6 +1,6 @@
 # 0.6.5
 ## Fixed
-- Исправлен MergeSort
+- Исправлен QuickSort
 
 # 0.6.0
 ## Added
