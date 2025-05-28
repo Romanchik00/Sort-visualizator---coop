@@ -40,7 +40,7 @@
                     </Button.Content>
                 </Button>
 
-                <Image Source="/IMAGES/Sketch001.tif" Margin="0 30 0 0" Width="220" Height="350" />
+                <Image Source="/IMAGES/Sketch001.tif" Margin="0 30 0 0" Width="220" Height="350"/>
 
             </StackPanel>
         </Border>
