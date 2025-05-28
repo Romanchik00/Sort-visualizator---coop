@@ -1,3 +1,7 @@
+# 0.7.0
+## Fixed
+- Исправлен MargeSort
+
 # 0.6.5
 ## Fixed
 - Исправлен QuickSort
