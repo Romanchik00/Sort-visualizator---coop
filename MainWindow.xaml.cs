@@ -117,8 +117,8 @@ namespace TeamProgect
                 VisualBubbleSort();
                 VisualSelectionSort();
                 VisualInsertionSort();
-                //VisualMergeSort(); // Некорректно
-                VisualQuickSort(); // Зависает
+                VisualMergeSort();
+                VisualQuickSort();
             }
         }
 

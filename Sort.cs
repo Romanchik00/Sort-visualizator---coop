@@ -209,19 +209,19 @@ namespace sort
             }
         }
 
-        public static void MergeSort(ObservableCollection<double> arr, int left, int right)
+        public static async Task MergeSort(ObservableCollection<double> arr, int left, int right)
         {
             if (!Sort.isLoop) { return; }
             if (left < right)
             {
                 int mid = left + (right - left) / 2;
-                MergeSort(arr, left, mid);
-                MergeSort(arr, mid + 1, right);
-                Merge(arr, left, mid, right);
+                await MergeSort(arr, left, mid);
+                await MergeSort(arr, mid + 1, right);
+                await Merge(arr, left, mid, right);
             }
         }
 
-        private static async void Merge(ObservableCollection<double> arr, int left, int mid, int right)
+        private static async Task Merge(ObservableCollection<double> arr, int left, int mid, int right)
         {
             int n1 = mid - left + 1;
             int n2 = right - mid;
@@ -247,21 +247,21 @@ namespace sort
                 {
                     arr[k++] = R[jIndex++];
                 }
-                await Task.Delay(25);
+                await Task.Delay(45);
             }
 
             while (iIndex < n1)
             {
                 if (!Sort.isLoop) { return; }
                 arr[k++] = L[iIndex++];
-                await Task.Delay(25);
+                await Task.Delay(45);
             }
 
             while (jIndex < n2)
             {
                 if (!Sort.isLoop) { return; }
                 arr[k++] = R[jIndex++];
-                await Task.Delay(25);
+                await Task.Delay(45);
             }
         }
 
@@ -292,7 +292,7 @@ namespace sort
                     var temp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = temp;
-                    await Task.Delay(100);
+                    await Task.Delay(90);
                 }
             }
             var temp1 = arr[i + 1];
