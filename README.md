@@ -2,7 +2,7 @@
 learn coop work . it`s very hurt
 
 # Все файлы находятся в ветке master
-[https://github.com/Romanchik00/Sort-visualizator---coop/tree/master](#ветка master)
+[https://github.com/Romanchik00/Sort-visualizator---coop/tree/master]
 
 # Название проекта
 Приложение предназначено для наглядного объяснения начинающим программистам алгоритмов сортировки.
