@@ -1,7 +1,7 @@
 # Все файлы находятся в ветке master
 [https://github.com/Romanchik00/Sort-visualizator---coop/tree/master]
 
-# Sort-visualizator---coop
+# Sort-visualizator---coop  rel. 1.0.0.
 learn coop work . it`s very hurt.
 
 Оконное приложение windows
