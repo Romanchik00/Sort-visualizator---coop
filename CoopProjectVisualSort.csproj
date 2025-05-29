@@ -8,4 +8,30 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="IMAGES\icons8-microsoft-power-apps-48.png" />
+    <None Remove="IMAGES\png-clipart-flower-desktop-color-frost-purple-blue.png" />
+    <None Remove="IMAGES\png-clipart-watercolor-painting-graphics-leaf-green-painting-watercolor-painting-leaf.png" />
+    <None Remove="IMAGES\Sketch001.tif" />
+    <None Remove="IMAGES\sticker-png-black-and-white-flower-watercolor-painting-black-and-white-leaf-monochrome-animal-jam-clans-desktop-branch.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="IMAGES\icons8-microsoft-power-apps-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMAGES\png-clipart-flower-desktop-color-frost-purple-blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMAGES\png-clipart-watercolor-painting-graphics-leaf-green-painting-watercolor-painting-leaf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMAGES\Sketch001.tif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMAGES\sticker-png-black-and-white-flower-watercolor-painting-black-and-white-leaf-monochrome-animal-jam-clans-desktop-branch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>

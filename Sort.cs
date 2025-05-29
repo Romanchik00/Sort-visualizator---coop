@@ -187,7 +187,7 @@ namespace sort
                 var temp = arr[i];
                 arr[i] = arr[minIndex];
                 arr[minIndex] = temp;
-                await Task.Delay(150);
+                await Task.Delay(100);
             }
         }
 
@@ -205,7 +205,7 @@ namespace sort
                     j--;
                 }
                 arr[j + 1] = key;
-                await Task.Delay(150);
+                await Task.Delay(100);
             }
         }
 
