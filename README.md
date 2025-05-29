@@ -53,6 +53,7 @@ https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-9.0.300-windows
 Шаг 2: Чтобы перейдите в каталог проекта:
 
 используйте команду cd, чтобы перейти в каталог, где находится ваш проект. Например:
+
 `cd C:\Path\To\Your\Project`
 
 Шаг 3: Чтобы запустить проект, введите:
