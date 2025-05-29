@@ -150,7 +150,7 @@ namespace sort
 
     public static class VisualSort
     {
-        public static async void BubbleSort(ObservableCollection<double> arr)
+        public static async Task BubbleSort(ObservableCollection<double> arr)
         {
             int n = arr.Count;
             for (int i = 0; i < n - 1; i++)
@@ -170,7 +170,7 @@ namespace sort
             }
         }
 
-        public static async void SelectionSort(ObservableCollection<double> arr)
+        public static async Task SelectionSort(ObservableCollection<double> arr)
         {
             int n = arr.Count;
             for (int i = 0; i < n - 1; i++)
@@ -191,7 +191,7 @@ namespace sort
             }
         }
 
-        public static async void InsertionSort(ObservableCollection<double> arr)
+        public static async Task InsertionSort(ObservableCollection<double> arr)
         {
             int n = arr.Count;
             for (int i = 1; i < n; i++)

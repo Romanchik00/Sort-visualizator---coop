@@ -31,16 +31,16 @@
         <!--Часть с кнопками-->
         <Border CornerRadius="15" Margin="0 5 0 10" Grid.Column="0" Grid.Row="1" BorderBrush="#FF483D8B" BorderThickness="5" Opacity="0.8">
             <StackPanel Grid.Row="1">
-                <Button x:Name="StartButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Complex" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запуск" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="StartButton_Click"/>
-                <Button x:Name="PauseButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Пауза" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="PauseButton_Click"/>
-                <Button x:Name="ModeButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Режим" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="50" Click="ModeButton_Click"/>
+                <Button x:Name="StartButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Complex" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запуск" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="40" Click="StartButton_Click"/>
+                <Button x:Name="PauseButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Пауза" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="40" Click="PauseButton_Click"/>
+                <Button x:Name="ModeButton" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Режим" Opacity="0.8" Background="#FF483D8B" Width="170" Margin="0 40 0 0" Height="40" Click="ModeButton_Click"/>
                 <Button x:Name="DataGenButton" Click="GenerateDataButton_Click" FontSize="27" Foreground="#FFA9A9A9" FontStretch="Medium" FontFamily="Constantia" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.8" Background="#FF483D8B" Width="190" Margin="0 40 0 0" Height="70">
                     <Button.Content>
                         <TextBlock Text="Сгенерировать данные" TextWrapping="Wrap" TextAlignment="Center"/>
                     </Button.Content>
                 </Button>
 
-                <Image Source="/IMAGES/Sketch001.tif" Margin="0 30 0 0" Width="220" Height="350"/>
+                <Image Source="/IMAGES/Sketch001.tif"  Margin="0 20 0 0" Width="220" Height="350"/>
 
             </StackPanel>
         </Border>
@@ -52,29 +52,29 @@
         </StackPanel>
         <!--Отслеживания прогрессбары-->
         <Border CornerRadius="15" Margin="0 5 0 10" BorderThickness="5" BorderBrush="#FF483D8B"  Opacity="0.8" Grid.Column="1" Grid.Row="1">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Margin="10" VerticalScrollBarVisibility="Disabled">
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden" Height="Auto" Width="Auto" Margin="10" VerticalScrollBarVisibility="Hidden">
                 <StackPanel>
-                <!--Первый алгоритм-->
+                    <!--Первый алгоритм-->
                     <StackPanel x:Name="Bubble" Orientation="Horizontal">
                         <Label Content="Сортировка пузырьком (Bubble Sort):" FontSize="25" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia"/>
                         <Label x:Name="TimerTextBlockBubble" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="50,0,0,0"/>
                     </StackPanel>
 
                     <ItemsControl x:Name="BubbleItems" ItemsSource="{Binding Path=TestArray1}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel Margin="0,0,0,40" Orientation="Horizontal" HorizontalAlignment="Center"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Margin="0,0,0,40" Orientation="Horizontal" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
                                 <Grid Margin="5">
                                     <ProgressBar Orientation="Vertical" Foreground="#FF483D8B" Width="30" Height="50" Minimum="0" Maximum="100" Value="{Binding Path=.}" />
                                     <TextBlock Text="{Binding Path=., StringFormat='{}{0:F0}'}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFA9A9A9" />
                                 </Grid>
                             </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
 
                     <!--Второй алгоритм-->
@@ -104,7 +104,7 @@
                         <Label Content="Сортировка вставками (Insertion Sort): " FontSize="25" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia"/>
                         <Label  x:Name="TimerTextBlockInsertion" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="25,0,0,0"/>
                     </StackPanel>
-                    
+
                     <ItemsControl ItemsSource="{Binding Path=TestArray3}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -126,7 +126,7 @@
                         <Label Content="Сортировка слиянием (Merge Sort): " FontSize="25" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia"/>
                         <Label x:Name="TimerTextBlockMerge" Content="00:00:00:0000000" FontSize="30" Foreground="#FF483D8B" FontStretch="Medium" FontFamily="Constantia" Margin="65,0,0,0"/>
                     </StackPanel>
-                    
+
                     <ItemsControl ItemsSource="{Binding Path=TestArray4}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -166,12 +166,12 @@
                     </ItemsControl>
 
                 </StackPanel>
-                
+
             </ScrollViewer>
         </Border>
         <Image Source="/IMAGES/icons8-microsoft-power-apps-48.png" Margin="215,10,625,10" Grid.ColumnSpan="2"/>
         <Image Source="/IMAGES/icons8-microsoft-power-apps-48.png" Margin="370,10,220,10" Grid.Column="1"/>
-        <Image Opacity="0.7" Panel.ZIndex="-1" Source="/IMAGES/png-clipart-flower-desktop-color-frost-purple-blue.png" Margin="141,75,-140,116" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.RowSpan="2">
+        <Image Opacity="0.7" Panel.ZIndex="-1" Source="/IMAGES/png-clipart-flower-desktop-color-frost-purple-blue.png" Margin="141,0,-140,101" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
