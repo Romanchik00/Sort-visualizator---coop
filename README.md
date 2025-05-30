@@ -7,7 +7,8 @@ learn coop work . it`s very hurt.
 Оконное приложение windows
 ![image](https://github.com/user-attachments/assets/6469e7a4-43b2-42f8-b8bf-5fae42d0cf39)
 ![image](https://github.com/user-attachments/assets/5e26c971-374b-4830-8f19-1beb776c373f)
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/bd3fa3ec-616c-4a15-92ea-f8205153b52b)
+
 
 # Назначение проекта
 Приложение предназначено для наглядного объяснения начинающим программистам алгоритмов сортировки.
