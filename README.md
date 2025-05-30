@@ -1,6 +1,9 @@
 # Sort-visualizator---coop rel. 1.0.0.
 Оконное приложение windows
-![image](https://github.com/user-attachments/assets/20a780e5-e922-4b4c-bca2-dc2c200a3540)
+![image](https://github.com/user-attachments/assets/4c741a63-f4be-49b4-94aa-b877928d4390)
+![image](https://github.com/user-attachments/assets/de58d0bd-7dfe-4b6f-996d-6d36fd5b6bfa)
+![image](https://github.com/user-attachments/assets/e4b29be0-4add-41f6-a82d-cff7e5535980)
+
 
 ## Назначение проекта
 Приложение предназначено для наглядной демонстрации работы алгоритмов сортировки.
