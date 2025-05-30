@@ -5,9 +5,9 @@
 learn coop work . it`s very hurt.
 
 Оконное приложение windows
-![image](https://github.com/user-attachments/assets/6469e7a4-43b2-42f8-b8bf-5fae42d0cf39)
-![image](https://github.com/user-attachments/assets/5e26c971-374b-4830-8f19-1beb776c373f)
-![image](https://github.com/user-attachments/assets/bd3fa3ec-616c-4a15-92ea-f8205153b52b)
+![image](https://github.com/user-attachments/assets/b4d3bb57-23bd-47b4-bf78-6ae7a8270404)
+![image](https://github.com/user-attachments/assets/65d47340-2343-4ea2-b613-4fdfc1396031)
+![image](https://github.com/user-attachments/assets/61c67e34-a548-4810-b338-b43aed46ec45)
 
 
 # Назначение проекта
